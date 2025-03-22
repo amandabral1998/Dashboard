@@ -1,54 +1,55 @@
-# React + TypeScript + Vite
+# React Dashboard - API Fetching with Rate Limiting  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview  
+This project implements a **React dashboard** that fetches data from an API while ensuring efficient performance using **rate limiting** and **local caching**.  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features  
 
-## Expanding the ESLint configuration
+### API Fetching & State Management  
+- Uses `axios.get(url)` to fetch data from the API.  
+- Maintains three state variables:  
+  - `apiResponse`: Stores the fetched API data.  
+  - `error`: Stores error messages if the API request fails.  
+  - `loading`: Indicates whether data is being fetched.  
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+###  Rate Limiting (20 Requests per 120 Seconds)  
+- Ensures API requests do **not exceed 20 hits in 120 seconds**.  
+- Stores request count and first API call timestamp in `localStorage`.  
+- If the limit is reached, an error message `"API rate limit exceeded. Try again later."` is displayed.  
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+###  Data Caching for Performance Optimization  
+- Stores API response in `localStorage` to avoid unnecessary API calls.  
+- If cached data is **less than 6 seconds old**, it is reused instead of making a new request.  
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+###  Error Handling  
+- If API request fails, an error message is stored and displayed:  
+  `"Error fetching data. Please try again later."`  
+- Errors are also logged to the console for debugging.  
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Responsive UI Components
+ ## Dashboard Component 
+ Dashboard component is created for showing all the required details in Card View. Custom Hook is used inside component to fetch the 
+  data and map the data in **Card View** as **(key : values)** pair.
+   - Card View Component is responsibel for mapping the Card on the UI , before mapping the data filtered out data that does not have key **withdrawData & value 
+     !=object **.
+   - Filtered State is created using a useState Hook to store the filtered data and pass it to **Card Component** as props.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+ ## Charts Container (Chart.js) 
+ Charts Container is responsible for showing  UserDistribution , Deposit Bonus and User Distribution Charts on the UI.
+  - Custom Hook **(FetchData)** is called inside the Chart Container and the resposne is passed as props to all the Charts Component mention above.
+  -  Inside all the charts component useEffect is used to filter out the require data as per the requirements and values are mapped to the chart.
+  -  **Types of Charts Implemented** -  Pie Chart: "New Users Distribution" and "Active Users Distribution" and Line Chart:"Deposits and Bonuses Comparison".
+
+     
+  ## Toggle Dashboard and Analytics - A toggle button is Implemented to handle the toggling of Analytics and Dashboard as per user's preference.
+  ## Dark & Light Mode - Toggling Dark and Light Mode is Implemented.
+
+  
+  
+                               
+
+
+
+
