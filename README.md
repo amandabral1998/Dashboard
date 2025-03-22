@@ -33,12 +33,12 @@ This project implements a **React dashboard** that fetches data from an API whil
  Dashboard component is created for showing all the required details in Card View. Custom Hook is used inside component to fetch the 
   data and map the data in **Card View** as **(key : values)** pair.
    - Card View Component is responsibel for mapping the Card on the UI , before mapping the data filtered out data that does not have key **withdrawData & value 
-     !=object **.
+     !=object**.
    - Filtered State is created using a useState Hook to store the filtered data and pass it to **Card Component** as props.
 
  ## Charts Container (Chart.js) 
  Charts Container is responsible for showing  UserDistribution , Deposit Bonus and User Distribution Charts on the UI.
-  - Custom Hook **(FetchData)** is called inside the Chart Container and the resposne is passed as props to all the Charts Component mention above.
+  - Custom Hook **(FetchData)** is called inside the Chart Container and the response is passed as props to all the Charts Component mention above.
   -  Inside all the charts component useEffect is used to filter out the require data as per the requirements and values are mapped to the chart.
   -  **Types of Charts Implemented** -  Pie Chart: "New Users Distribution" and "Active Users Distribution" and Line Chart:"Deposits and Bonuses Comparison".
 
