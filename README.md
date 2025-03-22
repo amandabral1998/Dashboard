@@ -43,8 +43,11 @@ This project implements a **React dashboard** that fetches data from an API whil
   -  **Types of Charts Implemented** -  Pie Chart: "New Users Distribution" and "Active Users Distribution" and Line Chart:"Deposits and Bonuses Comparison".
 
      
-  ## Toggle Dashboard and Analytics - A toggle button is Implemented to handle the toggling of Analytics and Dashboard as per user's preference.
-  ## Dark & Light Mode - Toggling Dark and Light Mode is Implemented.
+  ## Toggle Dashboard and Analytics 
+  A toggle button is Implemented to handle the toggling of Analytics and Dashboard as per user's preference.
+  
+  ## Dark & Light Mode 
+  Toggling Dark and Light Mode is Implemented.
 
   
   
