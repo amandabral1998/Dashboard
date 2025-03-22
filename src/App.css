@@ -1,0 +1,7 @@
+.App-header {
+  padding: 1.5rem;
+  place-self: end;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

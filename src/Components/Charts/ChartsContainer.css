@@ -1,0 +1,125 @@
+
+.chartsContainer.Light {
+  background: linear-gradient(135deg, #e0f7fa, #b2dfdb);
+  color: #000000;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.chartsContainer.Dark {
+  background-color: #1a1a2e;
+  color: #ffffff;
+}
+
+.chartsContainer {
+  padding: 1rem;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chartsList {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin: 1.5rem auto;
+}
+
+
+.chart {
+  width: 33rem;
+  height: 20rem;
+  padding: 1rem;
+  border: 0.1rem solid #008000;
+  border-radius: 1rem;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s, box-shadow 0.3s ease-in-out;
+  background: linear-gradient(135deg, #e0f7fa, #ffffff);
+  box-shadow: 2px 2px 8px rgba(0, 128, 0, 0.2);
+  cursor: pointer;
+}
+
+.chartsContainer.Dark .chart {
+  border: 0.1rem solid #00ff00;
+  background: linear-gradient(135deg, #2b2b2b, #121212);
+  box-shadow: 2px 2px 8px rgba(0, 255, 0, 0.2);
+  color: #ffffff;
+}
+
+.chart:hover {
+  transform: translateY(-5px);
+  box-shadow: 4px 4px 12px rgba(0, 128, 0, 0.4);
+}
+
+/* 🟢 Analytics Heading */
+.analyticsHeading {
+  text-align: center;
+}
+
+/* 🌞 Light Mode Button */
+.goToDashboard {
+  background: linear-gradient(135deg, #36a2eb, #007bff);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🌙 Dark Mode Button */
+.chartsContainer.Dark .goToDashboard {
+  background: linear-gradient(135deg, #00aaff, #003366);
+  box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.2);
+}
+
+/* Button Hover Effects */
+.goToDashboard:hover {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  transform: scale(1.05);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.goToDashboard:active {
+  transform: scale(0.98);
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 1400px) {
+  .chartsList {
+    width: 100%;
+  }
+  .chart {
+    width: 20rem;
+    height: 20rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .chart {
+    width: 22rem;
+    height: 20rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .chartsList {
+    gap: 1rem;
+  }
+
+  .chart {
+    width: 80%;
+    height: 16rem;
+  }
+}

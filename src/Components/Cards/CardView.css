@@ -1,0 +1,13 @@
+.cardView {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 992px) {
+  .cardView {
+    gap: 1rem;
+  }
+}
